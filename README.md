@@ -29,6 +29,3 @@
     - describe *nombre_tabla*; (muestra como está estructurada una tabla seleccionada)
     - SELECT * FROM *nombre_tabla*; (muestra todos los registros de una tabla)
     - CREATE TABLE *nombre_tabla* (*parámetros*); (para crear una nueva tabla en la base de datos)
-
-
-🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑
