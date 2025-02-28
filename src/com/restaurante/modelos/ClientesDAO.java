@@ -1,4 +1,4 @@
-package com.example.tap2025.modelos;
+package src.com.restaurante.modelos;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

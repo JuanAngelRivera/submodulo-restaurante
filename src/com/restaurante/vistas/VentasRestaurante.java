@@ -1,4 +1,4 @@
-package com.example.tap2025.vistas;
+package src.com.restaurante.vistas;
 
 import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
