@@ -21,10 +21,12 @@ public class Cliente extends Stage
         txtEmail = new TextField();
         btnGuardar = new Button("Guardar");
         vbox = new VBox(txtNomCte, txtDireccion, txtTelCte, txtEmail, btnGuardar);
+        escena = new Scene(vbox, 120, 150);
     }
 
     public Cliente()
     {
+        crearUI();
         this.setTitle("Cliente");
         this.setScene(escena);
         this.show();
