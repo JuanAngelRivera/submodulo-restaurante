@@ -29,6 +29,7 @@ public class ListaClientes extends Stage
 
     public void crearTabla()
     {
+        ClientesDAO clientesDAO = new ClientesDAO();
         TableColumn <ClientesDAO, String> colNomCte = new TableColumn<>("Cliente");
         colNomCte.setCellValueFactory(new PropertyValueFactory<> ("nomCte"));
         TableColumn <ClientesDAO, String> colDireccion = new TableColumn<>("Direccion");
@@ -38,6 +39,7 @@ public class ListaClientes extends Stage
         TableColumn <ClientesDAO, String> colEmail = new TableColumn<>("Email");
         colEmail.setCellValueFactory(new PropertyValueFactory<>("emailCte"));
         tbvClientes.getColumns().addAll(colNomCte, colDireccion, colTel, colEmail);
+        tbvClientes.setItems(clientesDAO.SELECT());
     }
 
     private void crearUI()
