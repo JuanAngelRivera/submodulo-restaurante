@@ -45,7 +45,7 @@ public class ListaClientes extends Stage
     private void crearUI()
     {
         btnAgregar = new Button();
-        btnAgregar.setGraphic(new ImageView(getClass().getResource("/images/restaurante/add_icon.png").toExternalForm()));
+        btnAgregar.setGraphic(new ImageView(getClass().getResource("/src/com/restaurante/imagenes/add_icon.png").toExternalForm()));
         tlbMenu = new ToolBar(btnAgregar);
         tbvClientes = new TableView<>();
         crearTabla();
