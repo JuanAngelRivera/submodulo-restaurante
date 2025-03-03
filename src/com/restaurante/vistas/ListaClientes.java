@@ -19,14 +19,6 @@ public class ListaClientes extends Stage
     private Scene escena;
     private Button btnAgregar;
 
-    public ListaClientes()
-    {
-        crearUI();
-        setTitle("Lista de Clientes");
-        setScene(escena);
-        show();
-    }
-
     public void crearTabla()
     {
         ClientesDAO clientesDAO = new ClientesDAO();
@@ -44,12 +36,22 @@ public class ListaClientes extends Stage
 
     private void crearUI()
     {
+        tbvClientes = new TableView<>();
+
         btnAgregar = new Button();
         btnAgregar.setGraphic(new ImageView(getClass().getResource("/src/com/restaurante/imagenes/add_icon.png").toExternalForm()));
+        btnAgregar.setOnAction(event  -> new Cliente(tbvClientes));
         tlbMenu = new ToolBar(btnAgregar);
-        tbvClientes = new TableView<>();
         crearTabla();
         vbox = new VBox(tlbMenu, tbvClientes);
         escena = new Scene(vbox, 800, 600);
+    }
+
+    public ListaClientes()
+    {
+        crearUI();
+        setTitle("Lista de Clientes");
+        setScene(escena);
+        show();
     }
 }
