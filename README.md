@@ -19,6 +19,8 @@
     - `git add .` (para añadir todos los archivos modificados localmente)
     - `git commit -a -m "nombre_del_paquete"` (para etiquetar el paquete a enviar)
     - `git push origin main` (para subir los cambios a GitHub)
+    - `git pull origin main` (para actualizar repositorio local)
+  
 
 
 - **Para mysql (en la carpeta bin)** 
