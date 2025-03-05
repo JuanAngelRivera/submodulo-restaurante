@@ -44,7 +44,7 @@ public class ListaClientes extends Stage
         tbcEliminar.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
             @Override
             public TableCell<ClientesDAO, String> call(TableColumn.CellDataFeatures<ClientesDAO, String> clientesDAOStringCellDataFeatures) {
-                return ButtonCell("Eliminar");
+                return new ButtonCell("Eliminar");
             }
         });
 
