@@ -1,8 +1,5 @@
 package src.com.restaurante.vistas;
 
-import src.com.restaurante.componentes.ButtonCell;
-import com.example.tap2025.modelos.ClientesDAO;
-import com.example.tap2025.vistas.Cliente;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -10,6 +7,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import src.com.restaurante.modelos.ClientesDAO;
+import src.com.restaurante.componentes.ButtonCell;
 
 public class ListaClientes extends Stage {
 
@@ -27,12 +26,12 @@ public class ListaClientes extends Stage {
 
     private void CrearUI() {
         tbvClientes = new TableView<>();
-        btnAgregar = new Button();
+        btnAgregar = new Button("Agregar");
         btnAgregar.setOnAction(event -> new Cliente(tbvClientes));
-        ImageView imv = new ImageView(getClass().getResource("/images/seguidores.png").toString());
-        imv.setFitWidth(20);
-        imv.setFitHeight(20);
-        btnAgregar.setGraphic(imv);
+//        ImageView imv = new ImageView(getClass().getResource("/imagenes/add_icon.png").toString());
+//        imv.setFitWidth(20);
+//        imv.setFitHeight(20);
+//        btnAgregar.setGraphic(imv);
         tlbMenu = new ToolBar(btnAgregar);
         CreateTable();
         vBox = new VBox(tlbMenu,tbvClientes);

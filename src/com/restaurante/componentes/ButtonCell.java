@@ -1,6 +1,6 @@
 package src.com.restaurante.componentes;
 
-import com.example.tap2025.modelos.ClientesDAO;
+import src.com.restaurante.modelos.ClientesDAO;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
