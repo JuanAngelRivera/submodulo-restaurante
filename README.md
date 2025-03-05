@@ -10,24 +10,65 @@
 
 ## Comandos básicos a usar
 - **Para manejar rutas en el proyecto**
-    - `git cd ..` (para volver al directorio raiz)
-    - `git cd modulo` (para ingresar al submodulo restaurante)
 
+
+  Para volver al directorio raiz.
+```bash
+cd ..
+```
+Para ingresar al submodulo restaurante.
+```bash
+cd modulo
+```
 
 - **Para añadir una aportación al proyecto**
-    - `git status` (para verificar que archivos se van a actualizar)
-    - `git add .` (para añadir todos los archivos modificados localmente)
-    - `git commit -a -m "nombre_del_paquete"` (para etiquetar el paquete a enviar)
-    - `git push origin main` (para subir los cambios a GitHub)
-    - `git pull origin main` (para actualizar repositorio local)
-  
-
+Para verificar que archivos se van a actualizar.
+```bash
+git status
+```
+Para añadir todos los archivos modificados localmente.
+```bash
+git add .
+```
+Para etiquetar el paquete a enviar.
+```bash
+git commit -a -m "Nombre del paquete"
+```
+Para subir los cambios a GitHub.
+```bash
+git push origin main
+```
+Para actualizar repositorio local.
+```bash
+git pull origin main
+```
 
 - **Para mysql (en la carpeta bin)** 
-    - `.\\\mysql -u nombre_del_rol -p` (para iniciar sesión como un rol)
-    - `quit;` (para cerrar sesión)
-    - ``use nombre_base_datos;`` (para seleccionar la base de datos a usar)
-    - `show tables;` (muestra las tablas de la base de datos seleccionada)
-    - `describe nombre_tabla;` (muestra como está estructurada una tabla seleccionada)
-    - `SELECT * FROM nombre_tabla;` (muestra todos los registros de una tabla)
-    - `CREATE TABLE nombre_tabla (parámetros);` (para crear una nueva tabla en la base de datos)
+Para iniciar sesión como un rol.
+```bash
+mysql -u nombre_del_rol -p;
+```
+Para cerrar sesión.
+```bash
+quit;
+```
+Para seleccionar la base de datos a usar.
+```bash
+use Nombre_base_de_datos;
+```
+Muestra las tablas de la base de datos seleccionada.
+```bash
+show tables;
+```
+Muestra como está estructurada una tabla seleccionada.
+```bash
+decribe Nombre_tabla;
+```
+Muestra todos los registros de una tabla.
+```bash
+SELECT * FROM Nombre_tabla;
+```
+Para crear una nueva tabla en la base de datos.
+```bash
+CREATE TABLE Nombre_tabla (parametro1, parametro2, ..., parametron);
+```
