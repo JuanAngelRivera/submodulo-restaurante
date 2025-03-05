@@ -17,7 +17,7 @@ public class ButtonCell extends TableCell < ClientesDAO, String >
     protected void updateItem(String item, boolean empty)
     {
         super.updateItem(item, empty);
-        if (!empty)
+        if (!isEmpty())
             this.setGraphic(btnCelda);
         else
         {

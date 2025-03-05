@@ -1,5 +1,5 @@
 # Proyecto Restaurante
->Por Juan Angel Rivera Torres, .... alumnos del TECNM en Celaya
+>Por Juan Angel Rivera Torres, Montserrat Perez Landin, Ximena Rodriguez Rodriguez alumnos del TECNM en Celaya
 ## Cosas por hacer
 - [ ] Terminar de generar todas las tablas
 - [ ] Hacer que todos puedan usar el submódulo
