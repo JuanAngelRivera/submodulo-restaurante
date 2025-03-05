@@ -1,7 +1,5 @@
 package src.com.restaurante.vistas;
 
-import com.mysql.cj.xdevapi.Client;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.*;
 import javafx.util.Callback;
 import src.com.restaurante.componentes.ButtonCell;
@@ -35,16 +33,16 @@ public class ListaClientes extends Stage
         TableColumn <ClientesDAO, String> tbcEditar = new TableColumn<>("Editar");
         tbcEditar.setCellValueFactory(new Callback <TableColumn<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
             @Override
-            public TableCell <ClientesDAO, String> call(TableColumn <ClientesDAO, String> clientesDAOStringTableColumn) {
-                return ButtonCell("Editar");
+            public TableCell <ClientesDAO, String> call(TableColumn <ClientesDAO, String> param) {
+                return new ButtonCell("Editar");
             }
         });
 
         TableColumn <ClientesDAO, String> tbcEliminar = new TableColumn<>("Eliminar");
-        tbcEliminar.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
+        tbcEliminar.setCellValueFactory(new Callback<TableColumn<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
             @Override
-            public TableCell<ClientesDAO, String> call(TableColumn.CellDataFeatures<ClientesDAO, String> clientesDAOStringCellDataFeatures) {
-                return ButtonCell("Eliminar");
+            public TableCell<ClientesDAO, String> call(TableColumn<ClientesDAO, String> param) {
+                return new ButtonCell("Eliminar");
             }
         });
 
