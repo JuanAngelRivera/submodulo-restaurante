@@ -1,15 +1,16 @@
 package src.com.restaurante.vistas;
 
+import com.mysql.cj.xdevapi.Client;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.*;
+import javafx.util.Callback;
+import src.com.restaurante.componentes.ButtonCell;
 import src.com.restaurante.modelos.ClientesDAO;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
-import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.TableColumn;
 
 public class ListaClientes extends Stage
 {
@@ -30,7 +31,24 @@ public class ListaClientes extends Stage
         colTel.setCellValueFactory(new PropertyValueFactory<>("telCte"));
         TableColumn <ClientesDAO, String> colEmail = new TableColumn<>("Email");
         colEmail.setCellValueFactory(new PropertyValueFactory<>("emailCte"));
-        tbvClientes.getColumns().addAll(colNomCte, colDireccion, colTel, colEmail);
+
+        TableColumn <ClientesDAO, String> tbcEditar = new TableColumn<>("Editar");
+        tbcEditar.setCellValueFactory(new Callback <TableColumn<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
+            @Override
+            public TableCell <ClientesDAO, String> call(TableColumn <ClientesDAO, String> clientesDAOStringTableColumn) {
+                return ButtonCell("Editar");
+            }
+        });
+
+        TableColumn <ClientesDAO, String> tbcEliminar = new TableColumn<>("Eliminar");
+        tbcEliminar.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
+            @Override
+            public TableCell<ClientesDAO, String> call(TableColumn.CellDataFeatures<ClientesDAO, String> clientesDAOStringCellDataFeatures) {
+                return ButtonCell("Eliminar");
+            }
+        });
+
+        tbvClientes.getColumns().addAll(colNomCte, colDireccion, colTel, colEmail, tbcEditar, tbcEliminar);
         tbvClientes.setItems(clientesDAO.SELECT());
     }
 
