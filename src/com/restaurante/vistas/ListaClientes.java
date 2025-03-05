@@ -1,75 +1,71 @@
 package src.com.restaurante.vistas;
 
-import com.mysql.cj.xdevapi.Client;
-import javafx.beans.value.ObservableValue;
-import javafx.scene.control.*;
-import javafx.util.Callback;
 import src.com.restaurante.componentes.ButtonCell;
-import src.com.restaurante.modelos.ClientesDAO;
+import com.example.tap2025.modelos.ClientesDAO;
+import com.example.tap2025.vistas.Cliente;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
-public class ListaClientes extends Stage
-{
+public class ListaClientes extends Stage {
+
     private ToolBar tlbMenu;
-    private TableView <ClientesDAO> tbvClientes;
-    private VBox vbox;
+    private TableView<ClientesDAO> tbvClientes;
+    private VBox vBox;
     private Scene escena;
     private Button btnAgregar;
-
-    public void crearTabla()
-    {
-        ClientesDAO clientesDAO = new ClientesDAO();
-        TableColumn <ClientesDAO, String> colNomCte = new TableColumn<>("Cliente");
-        colNomCte.setCellValueFactory(new PropertyValueFactory<> ("nomCte"));
-        TableColumn <ClientesDAO, String> colDireccion = new TableColumn<>("Direccion");
-        colDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-        TableColumn <ClientesDAO, String> colTel = new TableColumn<>("Telefono");
-        colTel.setCellValueFactory(new PropertyValueFactory<>("telCte"));
-        TableColumn <ClientesDAO, String> colEmail = new TableColumn<>("Email");
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("emailCte"));
-
-        TableColumn <ClientesDAO, String> tbcEditar = new TableColumn<>("Editar");
-        tbcEditar.setCellValueFactory(new Callback <TableColumn<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
-            @Override
-            public TableCell <ClientesDAO, String> call(TableColumn <ClientesDAO, String> clientesDAOStringTableColumn) {
-                return ButtonCell("Editar");
-            }
-        });
-
-        TableColumn <ClientesDAO, String> tbcEliminar = new TableColumn<>("Eliminar");
-        tbcEliminar.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
-            @Override
-            public TableCell<ClientesDAO, String> call(TableColumn.CellDataFeatures<ClientesDAO, String> clientesDAOStringCellDataFeatures) {
-                return ButtonCell("Eliminar");
-            }
-        });
-
-        tbvClientes.getColumns().addAll(colNomCte, colDireccion, colTel, colEmail, tbcEditar, tbcEliminar);
-        tbvClientes.setItems(clientesDAO.SELECT());
+    public ListaClientes(){
+        CrearUI();
+        this.setTitle("Listado de Clientes :)");
+        this.setScene(escena);
+        this.show();
     }
 
-    private void crearUI()
-    {
+    private void CrearUI() {
         tbvClientes = new TableView<>();
-
         btnAgregar = new Button();
-        btnAgregar.setGraphic(new ImageView(getClass().getResource("/src/com/restaurante/imagenes/add_icon.png").toExternalForm()));
-        btnAgregar.setOnAction(event  -> new Cliente(tbvClientes));
+        btnAgregar.setOnAction(event -> new Cliente(tbvClientes));
+        ImageView imv = new ImageView(getClass().getResource("/images/seguidores.png").toString());
+        imv.setFitWidth(20);
+        imv.setFitHeight(20);
+        btnAgregar.setGraphic(imv);
         tlbMenu = new ToolBar(btnAgregar);
-        crearTabla();
-        vbox = new VBox(tlbMenu, tbvClientes);
-        escena = new Scene(vbox, 800, 600);
+        CreateTable();
+        vBox = new VBox(tlbMenu,tbvClientes);
+        escena = new Scene(vBox, 800, 600);
     }
 
-    public ListaClientes()
-    {
-        crearUI();
-        setTitle("Lista de Clientes");
-        setScene(escena);
-        show();
+    private void CreateTable() {
+        ClientesDAO objC = new ClientesDAO();
+        TableColumn<ClientesDAO,String> tbcNomCte = new TableColumn<>("Nombre");
+        tbcNomCte.setCellValueFactory(new PropertyValueFactory<>("nomCte"));
+        TableColumn<ClientesDAO,String> tbcDireccion = new TableColumn<>("Dirección");
+        tbcDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+        TableColumn<ClientesDAO,String> tbcTel = new TableColumn<>("Telefono");
+        tbcTel.setCellValueFactory(new PropertyValueFactory<>("telCte"));
+        TableColumn<ClientesDAO,String> tbcEmail = new TableColumn<>("Email");
+        tbcEmail.setCellValueFactory(new PropertyValueFactory<>("emailCte"));
+
+        TableColumn<ClientesDAO,String> tbcEditar = new TableColumn<>("Editar");
+        tbcEditar.setCellFactory(new Callback<TableColumn<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
+            @Override
+            public TableCell<ClientesDAO, String> call(TableColumn<ClientesDAO, String> param) {
+                return new ButtonCell("Editar");
+            }
+        });
+        TableColumn<ClientesDAO,String> tbcEliminar = new TableColumn<>("Eliminar");
+        tbcEliminar.setCellFactory(new Callback<TableColumn<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
+            @Override
+            public TableCell<ClientesDAO, String> call(TableColumn<ClientesDAO, String> param) {
+                return new ButtonCell("Eliminar");
+            }
+        });
+
+        tbvClientes.getColumns().addAll(tbcNomCte,tbcDireccion,tbcTel,tbcEmail,tbcEditar,tbcEliminar);
+        tbvClientes.setItems(objC.SELECT());
     }
 }

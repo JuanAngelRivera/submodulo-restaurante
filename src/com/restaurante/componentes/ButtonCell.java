@@ -1,50 +1,44 @@
 package src.com.restaurante.componentes;
 
+import com.example.tap2025.modelos.ClientesDAO;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
-import src.com.restaurante.modelos.ClientesDAO;
 
 import java.util.Optional;
 
-public class ButtonCell extends TableCell < ClientesDAO, String >
-{
+public class ButtonCell extends TableCell<ClientesDAO, String> {
     Button btnCelda;
     private String strLabelBtn;
+    public ButtonCell(String label){
 
-    @Override
-    protected void updateItem(String item, boolean empty)
-    {
-        super.updateItem(item, empty);
-        if (!empty)
-            this.setGraphic(btnCelda);
-        else
-        {
 
-        }
+        strLabelBtn= label;
+        btnCelda=new Button(strLabelBtn);
+        btnCelda.setOnAction(actionEvent -> {
+            ClientesDAO objC= this.getTableView().getItems().get(this.getIndex());
+            if (strLabelBtn.equals(("editar"))) {
+
+            }else{
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Mensaje del sistema");
+                alert.setContentText("Deseas eliminar el registro seleccionado?");
+                Optional<ButtonType> opcion =alert.showAndWait();
+                if(opcion.get() == ButtonType.OK) {
+                    objC.DELETE();
+                }
+            }
+            this.getTableView().setItems(objC.SELECT());
+            this.getTableView().refresh();
+        });
+
     }
 
-    public ButtonCell(String label)
-    {
-        ClientesDAO clientesDAO = this.getTableView().getItems().get(this.getIndex());
-        strLabelBtn = label;
-        btnCelda = new Button(strLabelBtn);
-
-        if (strLabelBtn.equals("Editar"))
-        {
-
-        }
-        else
-        {
-            Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-            alerta.setTitle("Mensaje del sistema");
-            alerta.setContentText("¿Quieres eliminar el registro seleccionado?");
-            Optional<ButtonType> opcion = alerta.showAndWait();
-            if (opcion.get() == ButtonType.OK)
-                clientesDAO.DELETE();
-        }
-        this.getTableView().setItems(clientesDAO.SELECT());
-        this.getTableView().refresh();
+    @Override
+    protected void updateItem(String s, boolean b) {
+        super.updateItem(s, b);
+        if( !isEmpty())
+            this.setGraphic(btnCelda);
     }
 }
