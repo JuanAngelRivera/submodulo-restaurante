@@ -42,12 +42,12 @@ public class Cliente extends Stage
         escena = new Scene(vbox, 120, 150);
     }
 
-    public Cliente(TableView <ClientesDAO> tbvClientes, ClientesDAO clientesDAO)
+    public Cliente (TableView <ClientesDAO> tbvClientes, ClientesDAO clientesDAO)
     {
         this.tbvClientes = tbvClientes;
         crearUI();
         if (clientesDAO == null)
-             new ClientesDAO();
+            new ClientesDAO();
         else
         {
             this.clientesDAO = clientesDAO;
