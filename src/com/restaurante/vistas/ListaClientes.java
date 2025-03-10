@@ -29,7 +29,7 @@ public class ListaClientes extends Stage
     {
         tbvClientes = new TableView<>();
         btnAgregar = new Button("Agregar");
-        btnAgregar.setOnAction(event -> new Cliente(tbvClientes));
+        btnAgregar.setOnAction(event -> new Cliente(tbvClientes, null));
 //        ImageView imv = new ImageView(getClass().getResource("/imagenes/add_icon.png").toString());
 //        imv.setFitWidth(20);
 //        imv.setFitHeight(20);

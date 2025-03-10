@@ -37,11 +37,21 @@ public class Cliente extends Stage
         escena = new Scene(vbox, 120, 150);
     }
 
-    public Cliente(TableView <ClientesDAO> tbvClientes)
+    public Cliente(TableView <ClientesDAO> tbvClientes, ClientesDAO clientesDAO)
     {
         this.tbvClientes = tbvClientes;
-        clientesDAO = new ClientesDAO();
         crearUI();
+        if (clientesDAO == null)
+             new ClientesDAO();
+        else
+        {
+            this.clientesDAO = clientesDAO;
+            txtNomCte.setText(this.clientesDAO.getNomCte());
+            txtDireccion.setText(this.clientesDAO.getDireccion());
+            txtTelCte.setText(this.clientesDAO.getTelCte());
+            txtEmail.setText(this.clientesDAO.getEmailCte());
+        }
+
         this.setTitle("Cliente");
         this.setScene(escena);
         this.show();
