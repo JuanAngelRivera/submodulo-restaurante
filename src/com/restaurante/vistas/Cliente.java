@@ -28,7 +28,12 @@ public class Cliente extends Stage
             clientesDAO.setDireccion(txtDireccion.getText());
             clientesDAO.setTelCte(txtTelCte.getText());
             clientesDAO.setEmailCte(txtEmail.getText());
-            clientesDAO.INSERT();
+
+            if (clientesDAO.getIdCte() > 0)
+                clientesDAO.UPDATE();
+            else
+                clientesDAO.INSERT();
+
             tbvClientes.setItems(clientesDAO.SELECT());
             tbvClientes.refresh();
             this.close();

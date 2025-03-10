@@ -20,7 +20,7 @@ public class ButtonCell extends TableCell<ClientesDAO, String>
         btnCelda.setOnAction(actionEvent ->
         {
             ClientesDAO objC= this.getTableView().getItems().get(this.getIndex());
-            if (strLabelBtn.equals(("editar")))
+            if (strLabelBtn.equals(("Editar")))
                 new Cliente(this.getTableView(), objC);
             else
             {
