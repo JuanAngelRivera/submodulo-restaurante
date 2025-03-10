@@ -10,8 +10,8 @@
 - [ ] Vincular base de datos con el proyecto
 
 ### Actividades Juan
-- [ ] Categoria.java
-- [ ] CategoriasDAO.java
+- [x] Categoria.java
+- [x] CategoriasDAO.java
 - [ ] ListaCategorias.java
 - [ ] Producto.java
 - [ ] ProductosDAO.java
