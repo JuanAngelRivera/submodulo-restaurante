@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import src.com.restaurante.vistas.Cliente;
-
 import java.util.Optional;
 
 public class ButtonCell extends TableCell<ClientesDAO, String>

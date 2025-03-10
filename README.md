@@ -40,7 +40,7 @@ git push origin main
 ```
 Para actualizar repositorio local.
 ```bash
-git pull origin main
+git pull --rebase origin main
 ```
 
 - **Para mysql (en la carpeta bin)** 
