@@ -10,7 +10,8 @@ import javafx.util.Callback;
 import src.com.restaurante.modelos.ClientesDAO;
 import src.com.restaurante.componentes.ButtonCell;
 
-public class ListaClientes extends Stage {
+public class ListaClientes extends Stage
+{
 
     private ToolBar tlbMenu;
     private TableView<ClientesDAO> tbvClientes;
@@ -24,7 +25,8 @@ public class ListaClientes extends Stage {
         this.show();
     }
 
-    private void CrearUI() {
+    private void CrearUI()
+    {
         tbvClientes = new TableView<>();
         btnAgregar = new Button("Agregar");
         btnAgregar.setOnAction(event -> new Cliente(tbvClientes));
@@ -38,7 +40,8 @@ public class ListaClientes extends Stage {
         escena = new Scene(vBox, 800, 600);
     }
 
-    private void CreateTable() {
+    private void CreateTable()
+    {
         ClientesDAO objC = new ClientesDAO();
         TableColumn<ClientesDAO,String> tbcNomCte = new TableColumn<>("Nombre");
         tbcNomCte.setCellValueFactory(new PropertyValueFactory<>("nomCte"));
