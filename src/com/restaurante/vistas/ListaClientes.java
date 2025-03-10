@@ -3,6 +3,7 @@ package src.com.restaurante.vistas;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -27,17 +28,24 @@ public class ListaClientes extends Stage
 
     private void CrearUI()
     {
-        tbvClientes = new TableView<>();
-        btnAgregar = new Button("Agregar");
-        btnAgregar.setOnAction(event -> new Cliente(tbvClientes, null));
-//        ImageView imv = new ImageView(getClass().getResource("/imagenes/add_icon.png").toString());
-//        imv.setFitWidth(20);
-//        imv.setFitHeight(20);
-//        btnAgregar.setGraphic(imv);
-        tlbMenu = new ToolBar(btnAgregar);
-        CreateTable();
-        vBox = new VBox(tlbMenu,tbvClientes);
-        escena = new Scene(vBox, 800, 600);
+        try
+        {
+            tbvClientes = new TableView<>();
+            btnAgregar = new Button();
+            btnAgregar.setOnAction(event -> new Cliente(tbvClientes, null));
+            ImageView imv = new ImageView(new Image("file:modulo/src/com/restaurante/imagenes/add_icon.png"));
+            imv.setFitWidth(30);
+            imv.setFitHeight(30);
+            btnAgregar.setGraphic(imv);
+            tlbMenu = new ToolBar(btnAgregar);
+            CreateTable();
+            vBox = new VBox(tlbMenu, tbvClientes);
+            escena = new Scene(vBox, 800, 600);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private void CreateTable()

@@ -52,22 +52,22 @@ public class ListaCategorias extends Stage
         TableColumn<CategoriasDAO,String> tbcDesc = new TableColumn<>("Descripción");
         tbcDesc.setCellValueFactory(new PropertyValueFactory<>("descCat"));
 
-        TableColumn<CategoriasDAO,String> tbcEditar = new TableColumn<>("Editar");
-        tbcEditar.setCellFactory(new Callback<TableColumn<CategoriasDAO, String>, TableCell<CategoriasDAO, String>>() {
-            @Override
-            public TableCell<CategoriasDAO, String> call(TableColumn<CategoriasDAO, String> param) {
-                return new ButtonCell("Editar");
-            }
-        });
-        TableColumn<CategoriasDAO,String> tbcEliminar = new TableColumn<>("Eliminar");
-        tbcEliminar.setCellFactory(new Callback<TableColumn<CategoriasDAO, String>, TableCell<CategoriasDAO, String>>() {
-            @Override
-            public TableCell<CategoriasDAO, String> call(TableColumn<CategoriasDAO, String> param) {
-                return new ButtonCell("Eliminar");
-            }
-        });
+//        TableColumn<CategoriasDAO,String> tbcEditar = new TableColumn<>("Editar");
+//        tbcEditar.setCellFactory(new Callback<TableColumn<CategoriasDAO, String>, TableCell<CategoriasDAO, String>>() {
+//            @Override
+//            public TableCell<CategoriasDAO, String> call(TableColumn<CategoriasDAO, String> param) {
+//                return new ButtonCell("Editar");
+//            }
+//        });
+//        TableColumn<CategoriasDAO,String> tbcEliminar = new TableColumn<>("Eliminar");
+//        tbcEliminar.setCellFactory(new Callback<TableColumn<CategoriasDAO, String>, TableCell<CategoriasDAO, String>>() {
+//            @Override
+//            public TableCell<CategoriasDAO, String> call(TableColumn<CategoriasDAO, String> param) {
+//                return new ButtonCell("Eliminar");
+//            }
+//        });
 
-        tbvCategorias.getColumns().addAll(tbcNomCat,tbcDesc,tbcEditar,tbcEliminar);
+        tbvCategorias.getColumns().addAll(tbcNomCat,tbcDesc);//,tbcEditar,tbcEliminar);
         tbvCategorias.setItems(objC.SELECT());
     }
 }

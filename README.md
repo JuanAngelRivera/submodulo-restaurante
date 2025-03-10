@@ -17,7 +17,7 @@
 - [ ] ProductosDAO.java
 - [ ] ListaProductos.java
 - [ ] Copiado de bases de datos 
-- [ ] Corregir dirección de imagenes
+- [x] Corregir dirección de imagenes
 
 ### Actividades Monse
 - [ ] Mesa.java
