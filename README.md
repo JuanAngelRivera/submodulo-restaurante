@@ -2,11 +2,39 @@
 >Por Juan Angel Rivera Torres, Montserrat Perez Landin, Ximena Rodriguez Rodriguez alumnos del TECNM en Celaya
 ## Cosas por hacer
 - [ ] Terminar de generar todas las tablas
-- [ ] Hacer que todos puedan usar el submódulo
+- [x] Hacer que todos puedan usar el submódulo
 - [ ] Generar todos los modelos DAO
 - [ ] Vincular tablas con DAO
 - [ ] Generar interfaz para cada DAO
 - [ ] Generar interfaces generales
+- [ ] Vincular base de datos con el proyecto
+
+### Actividades Juan
+- [ ] Categoria.java
+- [ ] CategoriasDAO.java
+- [ ] ListaCategorias.java
+- [ ] Producto.java
+- [ ] ProductosDAO.java
+- [ ] ListaProductos.java
+- [ ] Copiado de bases de datos 
+- [ ] Corregir dirección de imagenes
+
+### Actividades Monse
+- [ ] Mesa.java
+- [ ] MesasDAO.java
+- [ ] ListaMesas.java
+- [ ] Proovedor.java
+- [ ] ProovedoresDAO.java
+- [ ] ListaProovedores.java
+
+### Actividades Ximena
+- [ ] Empleado.java
+- [ ] EmpleadosDAO.java
+- [ ] ListaEmpleados.java
+- [ ] Orden.java
+- [ ] OrdenesDAO.java
+- [ ] ListaOrdenes.java
+
 
 ## Comandos básicos a usar
 - **Para manejar rutas en el proyecto**
