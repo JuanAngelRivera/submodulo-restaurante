@@ -11,6 +11,8 @@ import javafx.util.Callback;
 import src.com.restaurante.modelos.ClientesDAO;
 import src.com.restaurante.componentes.ButtonCell;
 
+import java.util.Optional;
+
 public class ListaClientes extends Stage
 {
 
@@ -50,7 +52,7 @@ public class ListaClientes extends Stage
 
     private void CreateTable()
     {
-        ClientesDAO objC = new ClientesDAO();
+        ClientesDAO clientesDAO = new ClientesDAO();
         TableColumn<ClientesDAO,String> tbcNomCte = new TableColumn<>("Nombre");
         tbcNomCte.setCellValueFactory(new PropertyValueFactory<>("nomCte"));
         TableColumn<ClientesDAO,String> tbcDireccion = new TableColumn<>("Dirección");
@@ -61,21 +63,26 @@ public class ListaClientes extends Stage
         tbcEmail.setCellValueFactory(new PropertyValueFactory<>("emailCte"));
 
         TableColumn<ClientesDAO,String> tbcEditar = new TableColumn<>("Editar");
-        tbcEditar.setCellFactory(new Callback<TableColumn<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
-            @Override
-            public TableCell<ClientesDAO, String> call(TableColumn<ClientesDAO, String> param) {
-                return new ButtonCell("Editar");
-            }
-        });
+        tbcEditar.setCellFactory( col -> new ButtonCell<>("Editar", (tbvClientes, objC) -> {
+            new Cliente(tbvClientes, objC);
+            tbvClientes.setItems(objC.SELECT());
+            tbvClientes.refresh();
+        }));
+
         TableColumn<ClientesDAO,String> tbcEliminar = new TableColumn<>("Eliminar");
-        tbcEliminar.setCellFactory(new Callback<TableColumn<ClientesDAO, String>, TableCell<ClientesDAO, String>>() {
-            @Override
-            public TableCell<ClientesDAO, String> call(TableColumn<ClientesDAO, String> param) {
-                return new ButtonCell("Eliminar");
-            }
-        });
+        tbcEliminar.setCellFactory(col -> new ButtonCell<>("Eliminar", (tbvClientes, objC) -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Mensaje del sistema");
+            alert.setContentText("Deseas eliminar el registro seleccionado?");
+            Optional<ButtonType> opcion =alert.showAndWait();
+            if(opcion.get() == ButtonType.OK)
+                objC.DELETE();
+            tbvClientes.setItems(objC.SELECT());
+            tbvClientes.refresh();
+        }));
+
 
         tbvClientes.getColumns().addAll(tbcNomCte,tbcDireccion,tbcTel,tbcEmail,tbcEditar,tbcEliminar);
-        tbvClientes.setItems(objC.SELECT());
+        tbvClientes.setItems(clientesDAO.SELECT());
     }
 }

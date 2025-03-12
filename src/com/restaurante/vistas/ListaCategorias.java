@@ -3,12 +3,14 @@ package src.com.restaurante.vistas;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import src.com.restaurante.modelos.CategoriasDAO;
 import src.com.restaurante.componentes.ButtonCell;
+
+import java.util.Optional;
 
 public class ListaCategorias extends Stage
 {
@@ -32,10 +34,9 @@ public class ListaCategorias extends Stage
         tbvCategorias = new TableView<>();
         btnAgregar = new Button("Agregar");
         btnAgregar.setOnAction(event -> new Categoria(tbvCategorias, null));
-//        ImageView imv = new ImageView(getClass().getResource("/imagenes/add_icon.png").toString());
-//        imv.setFitWidth(20);
-//        imv.setFitHeight(20);
-//        btnAgregar.setGraphic(imv);
+        ImageView imv = new ImageView(new Image("file:modulo/src/com/restaurante/imagenes/add_icon.png"));
+        imv.setFitWidth(30);
+        imv.setFitHeight(30);
         tlbMenu = new ToolBar(btnAgregar);
         CreateTable();
         vBox = new VBox(tlbMenu, tbvCategorias);
@@ -52,20 +53,24 @@ public class ListaCategorias extends Stage
         TableColumn<CategoriasDAO,String> tbcDesc = new TableColumn<>("Descripción");
         tbcDesc.setCellValueFactory(new PropertyValueFactory<>("descCat"));
 
-//        TableColumn<CategoriasDAO,String> tbcEditar = new TableColumn<>("Editar");
-//        tbcEditar.setCellFactory(new Callback<TableColumn<CategoriasDAO, String>, TableCell<CategoriasDAO, String>>() {
-//            @Override
-//            public TableCell<CategoriasDAO, String> call(TableColumn<CategoriasDAO, String> param) {
-//                return new ButtonCell("Editar");
-//            }
-//        });
-//        TableColumn<CategoriasDAO,String> tbcEliminar = new TableColumn<>("Eliminar");
-//        tbcEliminar.setCellFactory(new Callback<TableColumn<CategoriasDAO, String>, TableCell<CategoriasDAO, String>>() {
-//            @Override
-//            public TableCell<CategoriasDAO, String> call(TableColumn<CategoriasDAO, String> param) {
-//                return new ButtonCell("Eliminar");
-//            }
-//        });
+        TableColumn<CategoriasDAO,String> tbcEditar = new TableColumn<>("Editar");
+        tbcEditar.setCellFactory( col -> new ButtonCell<>("Editar", (tbvCategorias, obj) -> {
+            new Categoria(tbvCategorias, obj);
+            tbvCategorias.setItems(obj.SELECT());
+            tbvCategorias.refresh();
+        }));
+
+        TableColumn<CategoriasDAO,String> tbcEliminar = new TableColumn<>("Eliminar");
+        tbcEliminar.setCellFactory(col -> new ButtonCell<>("Eliminar", (tbvCategorias, obj) -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Mensaje del sistema");
+            alert.setContentText("Deseas eliminar el registro seleccionado?");
+            Optional<ButtonType> opcion =alert.showAndWait();
+            if(opcion.get() == ButtonType.OK)
+                objC.DELETE();
+            tbvCategorias.setItems(objC.SELECT());
+            tbvCategorias.refresh();
+        }));
 
         tbvCategorias.getColumns().addAll(tbcNomCat,tbcDesc);//,tbcEditar,tbcEliminar);
         tbvCategorias.setItems(objC.SELECT());

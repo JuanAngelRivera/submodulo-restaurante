@@ -1,37 +1,26 @@
 package src.com.restaurante.componentes;
 
+import javafx.scene.control.*;
 import src.com.restaurante.modelos.ClientesDAO;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableCell;
+import src.com.restaurante.modelos.DAO;
 import src.com.restaurante.vistas.Cliente;
 import java.util.Optional;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
-public class ButtonCell extends TableCell<ClientesDAO, String>
+public class ButtonCell<T> extends TableCell<T, String>
 {
     Button btnCelda;
     private String strLabelBtn;
-    public ButtonCell(String label)
+
+    public ButtonCell(String label, BiConsumer<TableView<T>, T> action)
     {
-        strLabelBtn= label;
-        btnCelda=new Button(strLabelBtn);
+        strLabelBtn = label;
+        btnCelda = new Button(strLabelBtn);
         btnCelda.setOnAction(actionEvent ->
         {
-            ClientesDAO objC= this.getTableView().getItems().get(this.getIndex());
-            if (strLabelBtn.equals(("Editar")))
-                new Cliente(this.getTableView(), objC);
-            else
-            {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Mensaje del sistema");
-                alert.setContentText("Deseas eliminar el registro seleccionado?");
-                Optional<ButtonType> opcion =alert.showAndWait();
-                if(opcion.get() == ButtonType.OK)
-                    objC.DELETE();
-            }
-            this.getTableView().setItems(objC.SELECT());
-            this.getTableView().refresh();
+            T obj = getTableView().getItems().get(getIndex());
+            action.accept(getTableView(), obj);
         });
     }
 
