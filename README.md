@@ -3,6 +3,8 @@
 ## Cosas por hacer
 - [ ] Terminar de generar todas las tablas
 - [x] Hacer que todos puedan usar el submódulo
+- [ ] Verificar el diagrama de la BD con el maestro Elpidio
+- [ ] Unificar todo en una misma BD
 - [ ] Generar todos los modelos DAO
 - [ ] Vincular tablas con DAO
 - [ ] Generar interfaz para cada DAO
@@ -12,11 +14,11 @@
 ### Actividades Juan
 - [x] Categoria.java
 - [x] CategoriasDAO.java
-- [ ] ListaCategorias.java
+- [x] ListaCategorias.java
 - [ ] Producto.java
 - [ ] ProductosDAO.java
 - [ ] ListaProductos.java
-- [ ] Copiado de bases de datos 
+- [ ] Preguntar al maestro que archivos se van a generar para las clases n-n
 - [x] Corregir dirección de imagenes
 - [x] Creacion de clase generica para ButtonCell
  
@@ -27,6 +29,9 @@
 - [ ] Proovedor.java
 - [ ] ProovedoresDAO.java
 - [ ] ListaProovedores.java
+- [ ] Insumo.java
+- [ ] InsumosDAO.java
+- [ ] ListaInsumos.java
 
 ### Actividades Ximena
 - [ ] Empleado.java
@@ -35,7 +40,10 @@
 - [ ] Orden.java
 - [ ] OrdenesDAO.java
 - [ ] ListaOrdenes.java
-
+- [ ] Entidades y Relaciones de la BD de manera textual
+- [ ] Reservacion.java
+- [ ] ReservacionesDAO.java
+- [ ] ListaReservaciones.java
 
 ## Comandos básicos a usar
 - **Para manejar rutas en el proyecto**

@@ -38,7 +38,6 @@ public class ListaClientes extends Stage
             ImageView imv = new ImageView(new Image("file:modulo/src/com/restaurante/imagenes/add_icon.png"));
             imv.setFitWidth(30);
             imv.setFitHeight(30);
-            btnAgregar.setGraphic(imv);
             tlbMenu = new ToolBar(btnAgregar);
             CreateTable();
             vBox = new VBox(tlbMenu, tbvClientes);
