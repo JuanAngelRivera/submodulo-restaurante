@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class CategoriasDAO
+public class CategoriasDAO extends DAO <CategoriasDAO>
 {
     private int idCat;
     private String nomCat;

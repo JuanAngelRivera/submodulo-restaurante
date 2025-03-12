@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class ClientesDAO
+public class ClientesDAO extends DAO <ClientesDAO>
 {
     private int idCte;
     private String nomCte;
@@ -108,7 +108,7 @@ public class ClientesDAO
         }
     }
 
-        public ObservableList<ClientesDAO> SELECT()
+    public ObservableList<ClientesDAO> SELECT()
     {
         String query = "SELECT * FROM clientes;";
         ObservableList<ClientesDAO> listaC = FXCollections.observableArrayList();
