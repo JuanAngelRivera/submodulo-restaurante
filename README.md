@@ -63,13 +63,14 @@ Para etiquetar el paquete a enviar.
 ```bash
 git commit -a -m "Nombre del paquete"
 ```
-Para subir los cambios a GitHub.
-```bash
-git push origin main
-```
 Para actualizar repositorio local.
 ```bash
 git pull --rebase origin main
+```
+
+Para subir los cambios a GitHub.
+```bash
+git push origin main
 ```
 
 - **Para mysql (en la carpeta bin)** 
