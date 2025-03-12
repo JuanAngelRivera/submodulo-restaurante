@@ -14,10 +14,7 @@ public class ClientesDAO extends DAO <ClientesDAO>
     private String direccion;
     private String emailCte;
 
-    public int getIdCte()
-    {
-        return idCte;
-    }
+    public int getIdCte() {return idCte;}
 
     public void setIdCte(int idCte)
     {
