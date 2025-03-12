@@ -32,3 +32,12 @@ public class ButtonCell<T> extends TableCell<T, String>
             this.setGraphic(btnCelda);
     }
 }
+
+//un proceso es un conjunto de acciones al igual que un algoritmo
+//un proceso tambien es un programa corriendo en la computadora
+//cuando dos procesos estan bloqueando entre ellos se lamma interbloqueo
+//como de termina? uno de los procesos mueren por inanicion, cuando se habla d eun rpoceso e los soitemas operativos se
+//hablan de hilos
+//Tecnicas de desmacho de procesos
+//quantum
+//exclusion mutua
