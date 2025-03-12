@@ -18,7 +18,8 @@
 - [ ] ListaProductos.java
 - [ ] Copiado de bases de datos 
 - [x] Corregir dirección de imagenes
-
+- [x] Creacion de clase generica para ButtonCell
+ 
 ### Actividades Monse
 - [ ] Mesa.java
 - [ ] MesasDAO.java
