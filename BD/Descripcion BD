@@ -18,7 +18,7 @@ Levanta (empleado, orden) 1-n
 Otorga (proveedor, insumo) 1-n
 Ingredientes (Insumo, producto) n-n
 Contiene (orden, producto) n-n
-Pertenece (categória, producto) 1-n
+Pertenece (categoria, producto) 1-n
 Pide (cliente, orden) 1=n
 Se usa (mesa, orden) 1-n
 Contiene (mesa, reservación) n-n
