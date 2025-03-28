@@ -41,6 +41,8 @@ public class MesasDAO
             e.printStackTrace();
         }
     }
+    public void DELETE(){
 
+    }
 
 }
